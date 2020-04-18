@@ -24,7 +24,7 @@ jobs:
       run: |
         cd /tmp
         rm -rf hexo-layout
-        git clone https://github.com/erdun/hexo-layout.git 
+        git clone --recursive https://github.com/erdun/hexo-layout.git 
         cd hexo-layout
         yarn
         yarn build
