@@ -26,6 +26,6 @@ jobs:
         rm -rf hexo-layout
         git clone https://github.com/erdun/hexo-layout.git 
         cd hexo-layout
-        npm install
-        npm run build
-        npm run deploy
+        yarn
+        yarn build
+        yarn deploy
