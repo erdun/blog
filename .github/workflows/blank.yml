@@ -22,10 +22,17 @@ jobs:
     # Runs a single command using the runners shell
     - name: Deploy blog
       run: |
-        cd /tmp
-        rm -rf hexo-layout
+        GITHUB_RUN_ID=${GITHUB_RUN_ID:-"0"}
+        WORK_DIR=/tmp/${GITHUB_RUN_ID}
+        
+        mkdir -p $WORK_DIR
+        cd $WORK_DIR
+
         git clone --recursive https://github.com/erdun/hexo-layout.git 
         cd hexo-layout
+
         yarn
         yarn build
         yarn deploy
+
+        rm -rf $WORK_DIR
